@@ -14,12 +14,12 @@
 </head>
 
 <body>
-    <div class="div-body">
+    <div class="container">
         <header>
             <h1 class="page-header">Countries and Capitals</h1>
         </header>
-        <div class="main">
-            <ul>
+        <div class="collapse navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
                 <li>
                     <a style="color:navy" href="#/">Home</a>
                 </li>
@@ -28,7 +28,9 @@
                 </li>
             </ul>
         </div>
+        <section>
         <div ng-view></div>
+        </section>
     </div>
     <script type="text/javascript" src="myApp.js"></script>
     <script src="myService.js"></script>

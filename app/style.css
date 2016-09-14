@@ -23,6 +23,7 @@
 	left: 500px;
 	font-family: 'Comic Sans MS';
 	padding: 10px;
+	color: blue;
 }
 .main {
 	position: relative;
@@ -30,6 +31,7 @@
 	font-family: 'Comic Sans MS';
 	font-size:20px;
 	display: block;
+	color:brown;
 }
 a {
 	text-align: center;
@@ -46,5 +48,8 @@ td {
 	padding-right: 10px;	
 }
 
-
+.countryHeader {
+	text-align: center;
+	font-style: 'Comic Sans MS';
+}
 

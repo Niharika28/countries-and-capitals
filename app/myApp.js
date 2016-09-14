@@ -1,8 +1,6 @@
-angular.module('myApp', ['myService', 'ngRoute', 'ngAnimate'])
+angular.module('myApp', ['myService', 'ngRoute'])
     .config([
-        '$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-            $locationProvider.hashPrefix('!');
-
+        '$locationProvider', '$routeProvider', function($routeProvider) {
             $routeProvider
                 .when("/", {
                     templateUrl: "/home.html",
