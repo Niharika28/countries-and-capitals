@@ -10,7 +10,7 @@ angular.module('myService', [])
             });
 
             function getCountryList() {
-                var url = "http://api.geonames.org/countryInfoJSON?username=mwhelan";
+                var url = "http://api.geonames.org/countryInfoJSON?username=niharika28";
                 var request = $http.get(url, { cache: true });
                 return (request.then(handleSuccess, handleError));
             };
