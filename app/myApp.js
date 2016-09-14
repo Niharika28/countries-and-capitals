@@ -1,7 +1,7 @@
 angular.module('myApp', ['myService', 'ngRoute'])
     .config([
-        '$locationProvider', '$routeProvider', function($routeProvider) {
-            $routeProvider
+        '$routeProvider', function($routeProvider) {
+             $routeProvider
                 .when("/", {
                     templateUrl: "/home.html",
                     controller: 'homeCtrl'
