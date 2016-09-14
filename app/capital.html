@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="col-sm-4 col-sm-offset-4">
+        <h2>{{ country.countryName }}</h2>
+        <div class="panel panel-info">
+            <div class="row">
+                <div class="col-sm-12">
+                    <table>
+                        <thead align="center">Details</thead>
+                        <tr>
+                            <th>Population of Country: </th>
+                            <td> {{country.population | number}}</td>
+                        </tr>
+                        <tr>
+                            <th>Area (km<sup>2</sup>): </th>
+                            <td> {{country.areaInSqKm | number}}</td>
+                        </tr>
+                        <tr>
+                            <th>Capital: </th>
+                            <td> {{country.capital}}</td>
+                        </tr>
+                        <tr>
+                            <th>Population of Capital: </th>
+                            <td> {{capitalPopulation | number}}</td>
+                        </tr>
+                        <tr>
+                            <th>Continent: </th>
+                            <td> {{country.continentName}}</td>
+                        </tr>
+                        <tr>
+                            <th>{{neighbours.length}} Neighbours: </th>
+                            <td>
+                                <ul class="list-unstyled" ng-repeat="neighbour in neighbours">
+                                    <li><a ng-href="#!/countries/{{ neighbour.countryCode | uppercase }}">{{ neighbour.countryName }}</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="img-thumbnail" ng-src="http://www.geonames.org/flags/x/{{country.countryCode | lowercase}}.gif" />
+            </div>
+            <div class="col-sm-4">
+                <img class="img-thumbnail" ng-src="http://www.geonames.org/img/country/250/{{country.countryCode}}.png">
+            </div>
+        </div>
+    </div>
+</div>
