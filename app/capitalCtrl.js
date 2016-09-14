@@ -5,7 +5,10 @@ angular.module('myApp')
             countriesService.getCountry().then(function(result) {
                 $scope.country = result.geonames[0];
                 console.log($scope.country);
+            },function(error){
+                alert(error);
             });
+
             countriesService.getNeighbourList().then(function(result) {
                 $scope.neighbours = result.geonames;
             });
