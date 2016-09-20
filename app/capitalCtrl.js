@@ -1,19 +1,23 @@
 angular.module('myApp')
-    .controller('capitalCtrl', [
-        '$scope', 'countriesService',
-        function($scope, countriesService) {
-            countriesService.getCountry().then(function(result) {
-                $scope.country = result.geonames[0];
-                console.log($scope.country);
+    .controller('capitalCtrl', ['countriesService','countryCode',
+        function(countriesService,countryCode) {
+            var vm = this;
+            vm.countryCode = countryCode;
+
+            countriesService.country(vm.countryCode).then(function(result) {
+                vm.country = result.geonames[0];
+                console.log(vm.country.countryName);
+                console.log(vm.country.population);
             },function(error){
                 alert(error);
             });
 
-            countriesService.getNeighbourList().then(function(result) {
-                $scope.neighbours = result.geonames;
+            countriesService.neighbourList(vm.countryCode).then(function(result) {
+                vm.neighbours = result.geonames;
             });
-            countriesService.getCapitalDetails().then(function(result) {
-                $scope.capitalPopulation = result.geonames[0].population;
+            
+            countriesService.capitalDetails(vm.countryCode).then(function(result) {
+                vm.capitalPopulation = result.geonames[0].population;
             });
         }
     ]);

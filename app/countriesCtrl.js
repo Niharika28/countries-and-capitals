@@ -1,10 +1,10 @@
 angular.module('myApp')
-    .controller('countriesCtrl', [
-        '$scope', 'countriesService',
-        function($scope, countriesService) {
-            countriesService.getCountryList()
+    .controller('countriesCtrl', ['countriesService',
+        function(countriesService) {
+        	var vm = this;
+            countriesService.countriesList()
                 .then(function(result) {
-                    $scope.countries = result.geonames;
+                    vm.countries = result.geonames;
                 });
         }
     ]);

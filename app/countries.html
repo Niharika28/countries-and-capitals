@@ -16,7 +16,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="country in countries | orderBy:'countryName'">
+                        <tr ng-repeat="country in vm.countries | orderBy:'countryName'">
                             <td><a ng-href="#/countries/{{ country.countryCode | uppercase }}">{{ country.countryName }}</a></td>
                             <td>{{ country.countryCode }}</td>
                             <td>{{ country.capital }}</td>

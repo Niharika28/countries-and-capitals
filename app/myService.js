@@ -2,32 +2,35 @@ angular.module('myService', [])
     .factory('countriesService', [
         '$http', '$route', function($http, $route) {
 
+            var baseUrl = "http://api.geonames.org";
+            var userName = "niharika28";
+            var currentCountryCode;
             return ({
-                getCountryList: getCountryList,
-                getCountry: getCountry,
-                getNeighbourList: getNeighbourList,
-                getCapitalDetails: getCapitalDetails
+                countriesList: countriesList,
+                country: country,
+                neighbourList: neighbourList,
+                capitalDetails: capitalDetails,
             });
 
-            function getCountryList() {
-                var url = "http://api.geonames.org/countryInfoJSON?username=niharika28";
+            function countriesList() {
+                var url = baseUrl+"/countryInfoJSON?username="+userName;
                 var request = $http.get(url, { cache: true });
                 return (request.then(success, error));
             };
-            function getCountry() {
-                var url = "http://api.geonames.org/countryInfoJSON?username=niharika28&country=" + $route.current.params.countryCode;
+            function country(countryCode) {
+                var url = baseUrl+"/countryInfoJSON?username="+userName+"&country=" +countryCode;
                 var request = $http.get(url);
                 return (request.then(success, error));
             };
 
-            function getNeighbourList() {
-                var url = "http://api.geonames.org/neighboursJSON?username=niharika28&country=" + $route.current.params.countryCode;
+            function neighbourList(countryCode) {
+                var url = baseUrl+"/neighboursJSON?username="+userName+"&country=" +countryCode;
                 var request = $http.get(url);
                 return (request.then(success, error));
             };
 
-            function getCapitalDetails() {
-                var url = "http://api.geonames.org/searchJSON?formatted=true&username=niharika28&q=capital&&style=full&country=" + $route.current.params.countryCode;
+            function capitalDetails(countryCode) {
+                var url = baseUrl+"/searchJSON?formatted=true&username="+userName+"&q=capital&&style=full&country=" +countryCode;
                 var request = $http.get(url);
                 return (request.then(success, error));
             };

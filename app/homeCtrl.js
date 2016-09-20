@@ -1,7 +1,5 @@
 angular.module('myApp')
-    .controller('homeCtrl', [
-        '$scope',
-        function($scope) {
-            $scope.data = "world";
+    .controller('homeCtrl', function() {
+          console.log("In home controller");
         }
-    ]);
+    );
